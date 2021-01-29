@@ -36,16 +36,19 @@ function Navbar() {
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>QRF</Link>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        <Link to='/services' className='nav-links' onClick={closeMobileMenu}>Services</Link>
+                        <Link to='/services' className='nav-links' onClick={closeMobileMenu}>Experience</Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/products' className='nav-links' onClick={closeMobileMenu}>Products</Link>
+                        <Link to='/products' className='nav-links' onClick={closeMobileMenu}>Projects</Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>Sign Up</Link>
+                        <Link to='/everything-else' className='nav-links' onClick={closeMobileMenu}>Everything Else</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>RESUME</Link>
                     </li>
                 </ul>
-                {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                {button && <Button buttonStyle='btn--outline'>RESUME</Button>}
             </div>
         </nav>
         </>
