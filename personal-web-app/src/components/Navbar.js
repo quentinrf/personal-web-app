@@ -37,7 +37,7 @@ function Navbar() {
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>QRF</Link>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        <Link to='/services' className='nav-links' onClick={closeMobileMenu}>Experience</Link>
+                        <Link to='/professional-experience' className='nav-links' onClick={closeMobileMenu}>Experience</Link>
                     </li>
                     <li className='nav-item'>
                         <Link to='/products' className='nav-links' onClick={closeMobileMenu}>Projects</Link>
