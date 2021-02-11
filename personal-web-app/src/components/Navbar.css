@@ -1,9 +1,5 @@
 .navbar {
-  background: linear-gradient(
-    90deg,
-    rgba(111, 0, 135, 1) 0%,
-    rgba(255, 209, 0, 1) 100%
-  );
+  background: transparent;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -44,7 +40,7 @@
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 60vw;
+  width: 79vw;
   justify-content: end;
   margin-right: 2rem;
 }

@@ -16,7 +16,7 @@ export default function ProExperienceTimeline() {
 
     return (
         <div>
-          <h1 className="sign-up">Professional Experience</h1>
+          <h2 className="sign-up">Professional Experience</h2>
           <VerticalTimeline>
             {timelineElements.map((element) => {
               let isWorkIcon = element.icon === "work";
