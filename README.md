@@ -1,8 +1,7 @@
-# personal_website
+# Personal Website
 
-Personal Web app using React JS
-linear-gradient(
-90deg,
-rgba(111, 0, 135, 1) 0%,
-rgba(255, 209, 0, 1) 100%
-);
+This repository contains both the frontend and backend for Quentin's personal website which will contain content surrounding his experience. Currently only the frontend exists while the backend architecture is still being defined. Design documents can be found in the [docs](./docs) folder.
+
+
+
+
