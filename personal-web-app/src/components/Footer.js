@@ -8,24 +8,10 @@ function Footer() {
     <div className='footer-container'>
       <section class='social-media'>
         <div class='social-media-wrap'>
-          <div class='footer-logo'>
-            <Link to='/' className='social-logo'>
-              QRF
-              <i class='fab fa-typo3' />
-            </Link>
-          </div>
           <div class='social-icons'>
             <Link
-              class='social-icon-link youtube'
-              to='/'
-              target='_blank'
-              aria-label='Youtube'
-            >
-              <i class='fab fa-youtube' />
-            </Link>
-            <Link
               class='social-icon-link twitter'
-              to='/'
+              to={{pathname:'https://www.linkedin.com/in/quentin-roy-foster/'}}
               target='_blank'
               aria-label='LinkedIn'
             >

@@ -1,5 +1,5 @@
 .footer-container {
-  background-color: #242424;
+  background-color: rgb(12, 90, 100);
   padding: 4rem 0 2rem 0;
   display: flex;
   flex-direction: column;
@@ -96,7 +96,7 @@
 /* Social Icons */
 .social-icon-link {
   color: #fff;
-  font-size: 24px;
+  font-size: 48px;
 }
 
 .social-media {

@@ -7,9 +7,6 @@ import "./ProExperienceTimeline.css"
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css"
 
-
-//<i class='fab fa-linkedin' />
-
 export default function ProExperienceTimeline() {
     let workIconStyles = {background: "#06D6A0"};
     let schoolIconStyles = {background: "#F9C74F"};

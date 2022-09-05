@@ -5,19 +5,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color:rgb(12, 90, 100);
+  background-color:rgb(12, 90, 100);
   object-fit: contain;
 }
 
 .hero-container > h1 {
-  color: rgb(0, 0, 0);
+  color: #ffffff;
   font-size: 100px;
   margin-top: -100px;
 }
 
 .hero-container > p {
   margin-top: 8px;
-  color: rgb(0, 0, 0);
+  color: #ffffff;
   font-size: 32px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
