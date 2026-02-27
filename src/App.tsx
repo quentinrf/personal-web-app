@@ -1,119 +1,195 @@
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Aurora from './components/Aurora'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import BlurText from './components/BlurText'
 import RotatingText from './components/RotatingText'
-import FadeContent from './components/FadeContent'
-import SpotlightCard from './components/SpotlightCard'
+import GlassSurface from './components/GlassSurface'
+import ScrollReveal from './components/ScrollReveal'
 import './App.css'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const STATEMENT =
+  'I build the systems that make software companies possible — backend services, cloud infrastructure, and security platforms, written in Go.'
 
 const FOCUS_AREAS = [
   {
-    icon: '⬡',
     title: 'Backend Engineering',
-    description: 'Designing and building reliable, high-throughput services with a focus on clean architecture and long-term maintainability.'
+    description:
+      'Designing and building reliable, high-throughput services with a focus on clean architecture and long-term maintainability.',
   },
   {
-    icon: '☁',
     title: 'Cloud Infrastructure',
-    description: 'Building on AWS with serverless and event-driven patterns — Lambda, DynamoDB, SQS, and beyond.'
+    description:
+      'Building on AWS with serverless and event-driven patterns — Lambda, DynamoDB, SQS, and beyond.',
   },
   {
-    icon: '🔐',
     title: 'Auth & Security',
-    description: 'Implementing authentication and authorization systems using OIDC, JWT, and zero-trust principles.'
+    description:
+      'Implementing authentication and authorization systems using OIDC, JWT, and zero-trust principles.',
   },
   {
-    icon: '⚙',
     title: 'Systems Design',
-    description: 'Architecting distributed systems that scale across cloud environments with resilience and observability in mind.'
-  }
+    description:
+      'Architecting distributed systems that scale across cloud environments with resilience and observability in mind.',
+  },
 ]
 
 function Home() {
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Hero content drifts up and fades as you scroll past
+      gsap.to('.hero-inner', {
+        yPercent: -20,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+
+      // Cards stagger up on enter
+      gsap.fromTo(
+        '.focus-card',
+        { y: 70, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.cards-section',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
+
+      // Connect section fades up
+      gsap.fromTo(
+        '.connect-inner',
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.connect',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
+    })
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <div className="page">
-      <div className="aurora-wrap">
-        <Aurora
-          colorStops={['#1a1a2e', '#4f46e5', '#0f172a']}
-          amplitude={1.2}
-          blend={0.6}
-          speed={0.4}
-        />
-      </div>
-
-      <main className="content">
-        <section className="hero">
-          <FadeContent delay={100} duration={600}>
-            <span className="greeting">Hi, I'm</span>
-          </FadeContent>
-
+      {/* ── Hero ─────────────────────────────────────── */}
+      <section className="hero">
+        <div className="hero-inner">
+          <p className="hero-eyebrow">Software Engineer</p>
           <BlurText
             text="Quentin Roy-Foster"
             animateBy="words"
-            direction="top"
-            delay={120}
-            className="name"
+            direction="bottom"
+            delay={130}
+            stepDuration={0.4}
+            className="hero-name"
           />
+          <div className="hero-role">
+            <RotatingText
+              texts={['Backend Engineer', 'Go Developer', 'Cloud Architect', 'Systems Builder']}
+              rotationInterval={3000}
+              mainClassName="hero-rotating"
+              splitBy="words"
+            />
+          </div>
+        </div>
+        <div className="scroll-cue" aria-hidden="true">
+          <span className="scroll-line" />
+        </div>
+      </section>
 
-          <FadeContent delay={800} duration={700}>
-            <div className="role-line">
-              <span className="role-prefix">Senior </span>
-              <RotatingText
-                texts={['Backend Engineer', 'Go Developer', 'Cloud Architect', 'Systems Builder']}
-                rotationInterval={3000}
-                mainClassName="rotating-text"
-                splitBy="words"
-              />
-            </div>
-          </FadeContent>
+      {/* ── Statement ─────────────────────────────────── */}
+      <section className="statement-section">
+        <div className="statement-sticky">
+          <div className="statement-inner">
+            <ScrollReveal
+              baseOpacity={0.08}
+              enableBlur
+              blurStrength={5}
+              baseRotation={2}
+              wordAnimationEnd="bottom center"
+              rotationEnd="bottom center"
+              containerClassName="statement-heading"
+              textClassName="statement-text"
+            >
+              {STATEMENT}
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
-          <FadeContent delay={1100} duration={700}>
-            <p className="bio">
-              I build backend systems and cloud infrastructure that power modern software products.
-              My work lives at the intersection of distributed systems, security, and developer experience —
-              with Go as my language of choice.
-            </p>
-          </FadeContent>
-
-          <FadeContent delay={1300} duration={600}>
-            <div className="social-links">
-              <a
-                href="https://github.com/quentinrf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-              >
-                GitHub
-              </a>
-              <span className="social-divider">·</span>
-              <a
-                href="https://linkedin.com/in/quentin-roy-foster"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </FadeContent>
-        </section>
-
-        <FadeContent delay={1500} duration={700}>
-          <section className="cards-grid">
+      {/* ── Expertise cards ───────────────────────────── */}
+      <section className="cards-section">
+        <div className="cards-inner">
+          <p className="section-label">Expertise</p>
+          <h2 className="section-heading">What I focus on.</h2>
+          <div className="cards-grid">
             {FOCUS_AREAS.map((area) => (
-              <SpotlightCard
+              <GlassSurface
                 key={area.title}
-                spotlightColor="rgba(99, 102, 241, 0.15)"
+                width="100%"
+                height="auto"
+                borderRadius={20}
+                blur={18}
+                backgroundOpacity={0.06}
+                saturation={1.6}
+                distortionScale={-160}
                 className="focus-card"
               >
-                <span className="card-icon">{area.icon}</span>
-                <h3 className="card-title">{area.title}</h3>
-                <p className="card-desc">{area.description}</p>
-              </SpotlightCard>
+                <div className="card-body">
+                  <h3 className="card-title">{area.title}</h3>
+                  <p className="card-desc">{area.description}</p>
+                </div>
+              </GlassSurface>
             ))}
-          </section>
-        </FadeContent>
-      </main>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Connect ───────────────────────────────────── */}
+      <section className="connect">
+        <div className="connect-inner">
+          <p className="section-label">Get in touch</p>
+          <h2 className="connect-heading">Let's connect.</h2>
+          <div className="connect-links">
+            <a
+              href="https://github.com/quentinrf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="connect-btn"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/quentin-roy-foster"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="connect-btn"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

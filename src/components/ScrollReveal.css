@@ -1,0 +1,15 @@
+.scroll-reveal {
+  margin: 0;
+}
+
+.scroll-reveal-text {
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.sr-word {
+  display: inline-block;
+}
