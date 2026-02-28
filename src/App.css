@@ -164,12 +164,15 @@
 /* Glass card overrides */
 .focus-card {
   align-items: flex-start !important;
-  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease, opacity 0.26s ease-out;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.28s ease,
+              opacity 0.26s ease-out;
   cursor: default;
 }
 .focus-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 64px rgba(59, 15, 168, 0.22), 0 8px 24px rgba(11, 79, 122, 0.18);
+  transform: translateY(-4px);
+  filter: drop-shadow(0 12px 32px rgba(59, 15, 168, 0.28))
+          drop-shadow(0 4px 12px rgba(11, 79, 122, 0.2));
 }
 
 .focus-card .glass-surface__content {
@@ -241,10 +244,13 @@
 
 .connect-btn-glass {
   flex-shrink: 0;
-  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.26s ease-out;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.22s ease,
+              opacity 0.26s ease-out;
 }
 .connect-btn-glass:hover {
   transform: scale(1.06);
+  filter: drop-shadow(0 4px 16px rgba(59, 15, 168, 0.25));
 }
 
 .connect-btn {
