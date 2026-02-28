@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Aurora from './components/Aurora'
 import BlurText from './components/BlurText'
 import RotatingText from './components/RotatingText'
 import GlassSurface from './components/GlassSurface'
@@ -91,6 +92,12 @@ function Home() {
 
   return (
     <div className="page">
+      <Aurora
+        colorStops={['#3b0fa8', '#0b4f7a', '#0d7a6a']}
+        amplitude={1.2}
+        blend={0.6}
+        speed={0.4}
+      />
       {/* ── Hero ─────────────────────────────────────── */}
       <section className="hero">
         <div className="hero-inner">
@@ -150,9 +157,9 @@ function Home() {
                 height="auto"
                 borderRadius={20}
                 blur={18}
-                backgroundOpacity={0.06}
+                backgroundOpacity={0.1}
                 saturation={1.6}
-                distortionScale={-160}
+                distortionScale={-120}
                 className="focus-card"
               >
                 <div className="card-body">
@@ -171,22 +178,44 @@ function Home() {
           <p className="section-label">Get in touch</p>
           <h2 className="connect-heading">Let's connect.</h2>
           <div className="connect-links">
-            <a
-              href="https://github.com/quentinrf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="connect-btn"
+            <GlassSurface
+              width="auto"
+              height="auto"
+              borderRadius={980}
+              blur={14}
+              backgroundOpacity={0.08}
+              saturation={1.8}
+              distortionScale={-120}
+              className="connect-btn-glass"
             >
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/quentin-roy-foster"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="connect-btn"
+              <a
+                href="https://github.com/quentinrf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="connect-btn"
+              >
+                GitHub
+              </a>
+            </GlassSurface>
+            <GlassSurface
+              width="auto"
+              height="auto"
+              borderRadius={980}
+              blur={14}
+              backgroundOpacity={0.08}
+              saturation={1.8}
+              distortionScale={-120}
+              className="connect-btn-glass"
             >
-              LinkedIn
-            </a>
+              <a
+                href="https://linkedin.com/in/quentin-roy-foster"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="connect-btn"
+              >
+                LinkedIn
+              </a>
+            </GlassSurface>
           </div>
         </div>
       </section>
