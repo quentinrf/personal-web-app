@@ -1,0 +1,156 @@
+/* ─── Experience page ───────────────────────────────────── */
+.experience-page {
+  min-height: 100svh;
+}
+
+/* ─── Timeline ──────────────────────────────────────────── */
+.timeline {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.role-block {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0 28px;
+  padding-bottom: 64px;
+}
+
+.timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.timeline-node {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #5B5BD6;
+  border: 2px solid rgba(91, 91, 214, 0.30);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(91, 91, 214, 0.08);
+}
+
+.timeline-line {
+  flex: 1;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.10);
+  margin-top: 8px;
+}
+
+/* ─── Role content ──────────────────────────────────────── */
+.timeline-right {
+  padding-top: 0;
+}
+
+/* ─── Logo + header row ─────────────────────────────────── */
+.role-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.role-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.company-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  padding: 5px;
+  object-fit: contain;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.company-logo--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #5B5BD6;
+  background: rgba(91, 91, 214, 0.07);
+  letter-spacing: -0.02em;
+}
+
+.role-company {
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+.role-title {
+  font-size: 1rem;
+  color: #6e6e73;
+  margin: 0;
+  font-weight: 400;
+}
+
+.role-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.role-period {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 980px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.55);
+  letter-spacing: -0.01em;
+}
+
+.role-location {
+  font-size: 0.8125rem;
+  color: rgba(0, 0, 0, 0.40);
+  letter-spacing: -0.01em;
+}
+
+.role-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-bullet {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #6e6e73;
+  padding-left: 18px;
+  position: relative;
+}
+
+.role-bullet::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 640px) {
+  .role-block {
+    grid-template-columns: 20px 1fr;
+    gap: 0 16px;
+  }
+}
